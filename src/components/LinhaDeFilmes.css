@@ -11,6 +11,7 @@
 .linhaFilme--item{
     display: inline-block;
     width: 150px;
+    cursor: pointer;
 }
 .linhaFilme--list{
     width: 99999999px;
