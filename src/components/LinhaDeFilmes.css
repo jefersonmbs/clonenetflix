@@ -6,10 +6,21 @@
 }
 .linhaFilme--listarea{
     overflow-x: hidden;
+    padding-left: 30px;
 }
 .linhaFilme--item{
     display: inline-block;
+    width: 150px;
 }
 .linhaFilme--list{
     width: 99999999px;
+}
+.linhaFilme--item img{
+    width: 100%;
+    transform: scale(0.9);
+
+}
+.linhaFilme--item img:hover{
+    transform: scale(1);
+    transition: all ease 0.2s;
 }
