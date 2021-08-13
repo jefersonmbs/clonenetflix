@@ -7,51 +7,49 @@ const dadosFetch = async (endpoint) => {
     return jsonResult
 }
 
-
-export default {
-    getListaPrincipal: async () =>{
+ export default {
+    getListaPrincipal: async () => {
         return [
             {
-                slug: 'netflix',
-                title: 'Originais da NetFlix',
-                items: await dadosFetch(`/discover/tv?with_network=213&language=pt-BR&api_key=${API_KEY}`)
+                slug: 'originals',
+                title : "Originais do Netflix",
+                items : await dadosFetch(`/discover/tv/?with_network=213&language=pt-BR&api_key=${API_KEY}`)
             },
             {
-                slug: 'recomendados',
-                title: 'Recomendados para você',
-                items: await dadosFetch(`/trending/all/week&language=pt-BR&api_key=${API_KEY}`)
+                slug: 'trending',
+                title : "Recomendados para Você",
+                items : await dadosFetch(`/trending/all/week?language=pt-BR&api_key=${API_KEY}`)
             },
             {
-                slug: 'maisvotados',
-                title: 'Em Alta',
-                items: []
+                slug: 'toprated',
+                title : "Em Alta",
+                items : await dadosFetch(`/movie/top_rated?&language=pt-BR&api_key=${API_KEY}`)
             },
             {
-                slug: 'acao',
-                title: 'Ação',
-                items: []
+                slug: 'action',
+                title : "Ação",
+                items : await dadosFetch(`/discover/movie?with_genres=28&language=pt-BR&api_key=${API_KEY}`)
             },
             {
-                slug: 'comedia',
-                title: 'Comedia',
-                items: []
+                slug: 'comedy',
+                title : "Comédia",
+                items : await dadosFetch(`/discover/movie?with_genres=35&language=pt-BR&api_key=${API_KEY}`)
             },
             {
-                slug: 'terror',
-                title: 'Terror',
-                items: []
+                slug: 'horror',
+                title : "Terror",
+                items : await dadosFetch(`/discover/movie?with_genres=27&language=pt-BR&api_key=${API_KEY}`)
             },
             {
-                slug: 'roamance',
-                title: 'Romance',
-                items: []
+                slug: 'romance',
+                title : "Romance",
+                items : await dadosFetch(`/discover/movie?with_genres=10749&language=pt-BR&api_key=${API_KEY}`)
             },
             {
-                slug: 'documentario',
-                title: 'Documentários',
-                items: []
+                slug: 'documentary',
+                title : "Documentários",
+                items : await dadosFetch(`/discover/movie?with_genres=99&language=pt-BR&api_key=${API_KEY}`)
             },
-
-        ];
+        ]
     }
 }
