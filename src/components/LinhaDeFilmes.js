@@ -2,7 +2,6 @@ import React from 'react';
 import './LinhaDeFilmes.css'
 
 export default ({title, items}) => {
-    console.log(items)
     return (
         <div className="linhaFilme">
             <h2>{title}</h2>

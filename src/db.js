@@ -13,7 +13,8 @@ const dadosFetch = async (endpoint) => {
             {
                 slug: 'originals',
                 title : "Originais do Netflix",
-                items : await dadosFetch(`/discover/tv/?with_network=213&language=pt-BR&api_key=${API_KEY}`)
+                //https://api.themoviedb.org/3/discover/tv?api_key=###&with_networks=213
+                items : await dadosFetch(`/discover/tv?api_key=${API_KEY}&with_networks=213&language=pt-BR`)
             },
             {
                 slug: 'trending',
@@ -51,5 +52,23 @@ const dadosFetch = async (endpoint) => {
                 items : await dadosFetch(`/discover/movie?with_genres=99&language=pt-BR&api_key=${API_KEY}`)
             },
         ]
-    }
+    },
+     getInfoFilme: async (idfilme,tipo) =>{
+        let info = {};
+        if(idfilme){
+            switch (tipo){
+                case 'movie':
+                    info = await dadosFetch(`/movie/${idfilme}?language=pt-BR&api_key=${API_KEY}`)
+                    break;
+                case 'tv':
+                    info = await dadosFetch(`/tv/${idfilme}?language=pt-BR&api_key=${API_KEY}`)
+                    break;
+                default:
+                    info = await dadosFetch(`/tv/87739?language=pt-BR&api_key=${API_KEY}`)
+                    break;
+
+            }
+        }
+        return info;
+     }
 }
